@@ -29,6 +29,7 @@ python3 -m http.server 8000 --bind 127.0.0.1
 - `styles.css`：レイアウト、文字サイズ、スマートフォン向けの表示。
 - `script.js`：画像拡大、コピー。
 - `assets/slides/nco-intro.html`：実際の nco-intro を書き出した単一 HTML。
+- `assets/figures/nco-overview/`：構成型NCOの処理を7段階で操作できるHTMLの図。
 - `assets/screenshots/`：最新版 nco-intro のアプリ画面。
 
 埋め込みスライドを更新するときは、Slide Studio で nco-intro を検査してから HTML を書き出し、`assets/slides/nco-intro.html` を差し替えます。テーマや HTML 図も現在の保管フォルダの内容を使います。現在は、マルチエージェントの発表で編集した正式版の mist テーマを反映しています。

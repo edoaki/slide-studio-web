@@ -97,13 +97,38 @@ h3 code { font-size:.85em; }
 .feature:first-of-type { border-top:0; padding-top:0; }
 .feature:nth-of-type(even) { grid-template-columns:minmax(0,7fr) minmax(0,5fr); }
 .feature:nth-of-type(even) .feature-text { order:2; }
+.feature.feature-theme { display:block; }
+.feature-theme .feature-text { max-width:760px; }
+.theme-examples { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; margin-top:32px; }
+.theme-examples figcaption { margin-top:10px; font-size:14px; color:var(--muted); }
 .feature-no { display:inline-block; font-family:var(--mono); font-size:13px; font-weight:600; color:var(--green); background:var(--lime); padding:1px 9px; border-radius:999px; margin-bottom:16px; }
 .feature-text p { margin-top:16px; color:var(--ink-2); }
 .feature-list { margin:18px 0 0; padding:0; list-style:none; display:grid; gap:6px; font-size:15px; color:var(--muted); }
 .feature-list li { position:relative; padding-left:20px; }
 .feature-list li::before { content:""; position:absolute; left:2px; top:.8em; width:8px; height:8px; border-radius:50%; background:var(--green-2); }
 .step-badge { display:inline-block; padding:0 8px; border-radius:999px; background:#1f5fbf; color:#fff; font-size:12px; font-weight:700; line-height:1.8; }
-.crop-tall { max-width:520px; justify-self:center; }
+.chat-preview { container-type:inline-size; width:100%; max-width:520px; min-width:0; justify-self:center; overflow:hidden; border:1px solid var(--line-2); border-radius:var(--radius); background:#ebecf0; box-shadow:var(--shadow); font-family:Arial,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif; color:#575b65; }
+.chat-preview-top { height:6.6cqw; background:#fbfbfd; border-bottom:1px solid #e5e5e9; }
+.chat-preview-panel { padding:2.9cqw 2.8cqw 2.8cqw; margin-bottom:1.8cqw; border-radius:0 0 4cqw 4cqw; background:#fbfbfd; box-shadow:0 2px 2px #2425300c; font-size:3.45cqw; line-height:1.4; }
+.chat-preview-target { display:flex; align-items:center; gap:1.8cqw; margin-bottom:2.2cqw; white-space:nowrap; }
+.chat-preview-page { overflow:hidden; text-overflow:ellipsis; padding:1.5cqw 2.6cqw; border-radius:999px; background:#e3edfc; color:#245fae; font-weight:700; }
+.chat-preview-scope { margin-left:auto; padding:1.3cqw 2.7cqw; border:1px solid #dddde1; border-radius:999px; background:#fff; font-weight:700; }
+.chat-preview-composer { display:flex; flex-direction:column; justify-content:space-between; height:33.5cqw; padding:3.3cqw 1.8cqw 1.6cqw 3.3cqw; border:1px solid #d9d9de; border-radius:4.3cqw; background:#fff; }
+.chat-preview-placeholder { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.chat-preview-toolbar { display:flex; align-items:center; gap:1.8cqw; }
+.chat-preview-icon, .chat-preview-chevron, .chat-preview-send svg { flex-shrink:0; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.chat-preview-icon { width:4.6cqw; height:4.6cqw; }
+.chat-preview-comments { margin-left:2.6cqw; }
+.chat-preview-spacer { flex:1; }
+.chat-preview-indicator { width:4cqw; height:4cqw; margin-right:3.6cqw; border:2px solid #f0f0f2; border-radius:50%; }
+.chat-preview-model { flex-shrink:0; font-size:3.65cqw; font-weight:700; white-space:nowrap; }
+.chat-preview-model span { margin-left:.5cqw; color:#2866ba; }
+.chat-preview-chevron { width:2.8cqw; height:2.8cqw; }
+.chat-preview-send { display:grid; place-items:center; width:8.8cqw; height:8.8cqw; margin-left:2cqw; border-radius:50%; background:#f0f1f3; color:#7c808b; }
+.chat-preview-send svg { width:5cqw; height:5cqw; }
+.figure-demo { min-width:0; overflow:hidden; border:1px solid var(--line-2); border-radius:var(--radius); background:#fff; box-shadow:var(--shadow); }
+.figure-frame { display:block; width:100%; height:380px; border:0; }
+.figure-demo figcaption { padding:10px 16px; border-top:1px solid var(--line); font-size:13px; color:var(--muted); }
 
 .cite-demo { margin-top:22px; border:1px solid var(--line); border-radius:10px; background:var(--card); font-size:14px; line-height:1.7; overflow:hidden; }
 .cite-row { display:grid; grid-template-columns:72px 1fr; gap:10px; padding:10px 14px; border-top:1px solid var(--line); }
@@ -210,6 +235,8 @@ h3 code { font-size:.85em; }
   .hero-callouts { display:none; }
 }
 @media (max-width:720px) {
+  .theme-examples { grid-template-columns:minmax(0,1fr); }
+  .figure-frame { height:280px; }
   .container { width:calc(100% - 32px); }
   .section { padding-block:68px; }
   .desktop-nav { display:none; }

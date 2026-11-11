@@ -122,8 +122,8 @@
                 <div class="cite-row cite-foot"><span class="cite-label">下部</span><span>[5] W. Kool, H. van Hoof, M. Welling. Attention, Learn to Solve Routing Problems! ICLR 2019.</span></div>
               </div>
             </div>
-            <button class="shot crop" type="button" style="--x:470;--y:520;--cw:930;--ch:200" data-zoom="assets/screenshots/editor.webp" data-caption="本文の @kool2019 が [5] になり、スライドの下に出典が入っています。" aria-label="引用が入ったスライドの画面を拡大">
-              <img src="assets/screenshots/editor.webp" width="1800" height="1050" alt="スライド下部に自動で入った出典" loading="lazy">
+            <button class="shot" type="button" data-zoom="assets/slides/citation-example.webp" data-caption="本文の @kool2019 が [5] になり、スライドの下に出典が入っています。" aria-label="引用が入ったスライドの画面を拡大">
+              <img src="assets/slides/citation-example.webp" width="3840" height="2160" alt="Attention Model：概要のスライド。本文の引用番号 [5] と、下部に自動で入った出典" loading="lazy">
             </button>
           </article>
 
@@ -134,12 +134,13 @@
               <p>段階的に動く図のための JavaScript の部品を同梱しています。AI に図を頼むと、この部品をコピーして組み立てるので、一から書かせるより崩れにくく、動きもそろいます。図は発表中にクリックで一段ずつ進み、書き出した HTML でもそのまま動きます。</p>
               <ul class="feature-list">
                 <li>図はトピックごとにまとまり、ほかの発表でも再利用できる</li>
-                <li>右上の <span class="step-badge">①–⑦</span> は段階の数</li>
+                <li>全7段階で、問題の入力から経路の生成まで確認できる</li>
               </ul>
             </div>
-            <button class="shot crop" type="button" style="--x:600;--y:350;--cw:740;--ch:270" data-zoom="assets/screenshots/editor.webp" data-caption="7 段階で動く HTML の図。上のスライドの 13 ページで実際に動かせます。" aria-label="段階的に動く図の画面を拡大">
-              <img src="assets/screenshots/editor.webp" width="1800" height="1050" alt="エンコーダーとデコーダーを経て選択確率を出す、段階的に動く図" loading="lazy">
-            </button>
+            <figure class="figure-demo">
+              <iframe class="figure-frame" src="assets/figures/nco-overview/index.html" title="構成型NCOの処理：7段階で操作できるHTMLの図" loading="lazy"></iframe>
+              <figcaption>図をクリック、または左右の矢印キーで進められます。</figcaption>
+            </figure>
           </article>
 
           <article class="feature">
@@ -184,20 +185,50 @@
               <p>チャットの宛先は、いま開いているページ（選んでいる図）に自動で決まります。ほかのページを見ながら同じ所を直してほしいときは［固定］、発表全体なら［全体］に切り替えるだけ。</p>
               <p>直したあとはアプリが検査し、別の AI が見た目と文章を確認します。気に入らなければ、送信ごとに元へ戻せます。</p>
             </div>
-            <button class="shot crop crop-tall" type="button" style="--x:1430;--y:840;--cw:360;--ch:210" data-zoom="assets/screenshots/editor.webp" data-caption="入力欄の上に「対象 p13 Attention Model：概要」と、いま開いているページが自動で入っています。" aria-label="チャットの対象表示の画面を拡大">
-              <img src="assets/screenshots/editor.webp" width="1800" height="1050" alt="チャット入力欄の上に表示された、対象ページ p13 と［全体］ボタン" loading="lazy">
-            </button>
+            <div class="chat-preview" role="img" aria-label="チャット入力欄の例。対象は p13 Attention Model：概要。全体ボタン、指示の入力欄、GPT-6.1-Sol のモデル表示が並んでいます。">
+              <div class="chat-preview-top"></div>
+              <div class="chat-preview-panel">
+                <div class="chat-preview-target">
+                  <span>対象</span>
+                  <span class="chat-preview-page">p13 Attention Model：概要</span>
+                  <span class="chat-preview-scope">全体</span>
+                </div>
+                <div class="chat-preview-composer">
+                  <div class="chat-preview-placeholder">p13 Attention Model：概要 への指示...</div>
+                  <div class="chat-preview-toolbar">
+                    <svg class="chat-preview-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                    <svg class="chat-preview-icon chat-preview-comments" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h10a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 1-2Z"/><path d="M12 17h5l5 4V11a2 2 0 0 0-2-2"/></svg>
+                    <span class="chat-preview-spacer"></span>
+                    <span class="chat-preview-indicator"></span>
+                    <span class="chat-preview-model">GPT-6.1-Sol <span>中</span></span>
+                    <svg class="chat-preview-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                    <span class="chat-preview-send"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V4m-7 7 7-7 7 7"/></svg></span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </article>
 
-          <article class="feature">
+          <article class="feature feature-theme">
             <div class="feature-text">
               <span class="feature-no">06</span>
               <h3>テーマで、全ページがそろう。</h3>
               <p>色・フォント・見出しの形はテーマにまとまっていて、切り替えると全ページが一度に変わります。本文の色、強調色、表の見出しなど、役割ごとに色を決めるので、ページによって配色がばらつきません。テーマの調整もチャットで頼めます。</p>
             </div>
-            <button class="shot crop" type="button" style="--x:10;--y:75;--cw:1780;--ch:740" data-zoom="assets/screenshots/theme.webp" data-caption="テーマのタブ。色を役割ごとに決め、見出しと本文のフォントも選べます。" aria-label="テーマ編集の画面を拡大">
-              <img src="assets/screenshots/theme.webp" width="1800" height="1050" alt="テーマの一覧と、本文・強調色・表などの色を役割ごとに設定する画面" loading="lazy">
-            </button>
+            <div class="theme-examples">
+              <figure>
+                <button class="shot" type="button" data-zoom="assets/slides/theme-background.webp" data-caption="p4「研究背景」。mist テーマを適用した実際のスライドです。" aria-label="p4「研究背景」のスライドを拡大">
+                  <img src="assets/slides/theme-background.webp" width="1280" height="720" alt="研究背景のスライド。本文と配送・作業の順番を表す図に共通のテーマを適用" loading="lazy">
+                </button>
+                <figcaption>p4「研究背景」</figcaption>
+              </figure>
+              <figure>
+                <button class="shot" type="button" data-zoom="assets/slides/theme-attention-overview.webp" data-caption="「Attention Model：概要」の最終ステップ。mist テーマを適用した実際のスライドです。" aria-label="「Attention Model：概要」の最終ステップを拡大">
+                  <img src="assets/slides/theme-attention-overview.webp" width="1280" height="720" alt="Attention Model：概要の最終ステップ。数式と図に研究背景と同じテーマを適用" loading="lazy">
+                </button>
+                <figcaption>「Attention Model：概要」の最終ステップ</figcaption>
+              </figure>
+            </div>
           </article>
         </div>
       </section>
