@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f6f1">
+    <meta name="description" content="Slide Studio は研究発表のためのローカルスライドエディタ。Quarto の原稿を画面上で組み立て、@ で文献を引用し、動く図も手持ちの ChatGPT・Claude・Gemini と一緒に作れます。">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:title" content="Slide Studio — 研究の話を、伝わるスライドに。">
+    <meta property="og:description" content="Quarto を画面で組み立て、文献は @ で引用、動く図も。研究発表のためのローカルスライドエディタ。">
+    <title>Slide Studio — 研究の話を、伝わるスライドに。</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+      <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 5h5v5m0-5L9 15m10-1v5H5V5h5"/></symbol>
+      <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-4.3 1.3-4.3-2-6-2.5M15 22v-3.4c0-1 .1-1.5-.5-2.1 3.3-.4 6.5-1.6 6.5-7a5.5 5.5 0 0 0-1.5-3.8 5 5 0 0 0-.1-3.7s-1.2-.4-3.9 1.5a13.5 13.5 0 0 0-7 0C5.8 1.6 4.6 2 4.6 2a5 5 0 0 0-.1 3.7A5.5 5.5 0 0 0 3 9.5c0 5.4 3.2 6.6 6.5 7-.5.5-.6 1.1-.5 2.1V22"/></symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-offline" viewBox="0 0 24 24"><path d="M2 8.8a15 15 0 0 1 4.2-2.6m4-1a15 15 0 0 1 11.8 3.6M5 12.6a10 10 0 0 1 4-2.2m5.7.1A10 10 0 0 1 19 12.6M8.5 16.4a5 5 0 0 1 7 0M12 20h.01M3 3l18 18"/></symbol>
+      <symbol id="i-key" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="4.5"/><path d="m10.7 12.3 9.3-9.3m-4 4 3 3m-5.5-.5 2 2"/></symbol>
+      <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+      <symbol id="i-share" viewBox="0 0 24 24"><path d="M14 3h7v7m0-7-9 9M10 5H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/></symbol>
+    </svg>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#" aria-label="Slide Studio トップへ"><span class="brand-mark" aria-hidden="true"><span></span><span></span></span>Slide Studio</a>
+        <nav class="desktop-nav" aria-label="メインナビゲーション">
+          <a href="#slides">実例</a><a href="#features">できること</a><a href="#compare">ほかとの違い</a><a href="#start">はじめる</a>
+        </nav>
+        <a class="header-start" href="https://github.com/edoaki/slide-studio" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-github"/></svg><span>GitHub</span></a>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="container">
+          <div class="hero-copy">
+            <p class="kicker">研究発表のための、ローカルスライドエディタ</p>
+            <h1 id="hero-heading">研究の話を、<br>伝わる<span class="highlight">スライド</span>に。</h1>
+            <p class="hero-lead">Quarto の原稿を画面の上で組み立て、文献は <code>@</code> で引用。動く図も、実験結果からの表やグラフも、手持ちの AI に頼めます。</p>
+            <ul class="hero-tags" aria-label="特長">
+              <li>Quarto を GUI で編集</li>
+              <li>文献は @ で自動引用</li>
+              <li>オフラインで編集</li>
+              <li>ChatGPT・Claude・Gemini の契約で使える</li>
+            </ul>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#start">はじめる <svg class="icon"><use href="#i-arrow"/></svg></a>
+              <a class="button button-ghost" href="#slides">作例を見る</a>
+            </div>
+          </div>
+
+          <figure class="hero-figure">
+            <button class="shot" type="button" data-zoom="assets/screenshots/editor.webp" data-caption="左に原稿のブロック、中央にスライド、右にチャット。nco-intro を mist テーマで開いた実際の編集画面です。" aria-label="編集画面のスクリーンショットを拡大">
+              <img src="assets/screenshots/editor.webp" width="1800" height="1050" alt="左に原稿のブロック、中央に図付きのスライド、右にチャットを並べた Slide Studio の編集画面" fetchpriority="high">
+              <span class="zoom-hint"><svg class="icon"><use href="#i-plus"/></svg> 拡大</span>
+            </button>
+            <figcaption class="hero-callouts" aria-hidden="true">
+              <span style="--cx:12%">原稿のブロック</span>
+              <span style="--cx:52%">見たままのスライド</span>
+              <span style="--cx:89%">チャット</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- DEMO -->
+      <section class="demo section" id="slides" aria-labelledby="slides-heading">
+        <div class="container">
+          <div class="section-head">
+            <p class="kicker">MADE WITH SLIDE STUDIO</p>
+            <h2 id="slides-heading">このスライドも、<br>Slide Studio で作りました。</h2>
+            <p class="section-lead">数式・文献・段階的に動く図を含む研究発表です。クリックや矢印キーで進められます。書き出した単一の HTML ファイルを、ここに埋め込んでいます。</p>
+          </div>
+          <div class="demo-frame">
+            <iframe id="slide-frame" class="slide-frame" src="assets/slides/nco-intro.html" title="nco-intro：機械学習を使った組み合わせ最適化" loading="lazy" allow="fullscreen"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURES -->
+      <section class="features section" id="features" aria-labelledby="features-heading">
+        <div class="container">
+          <div class="section-head">
+            <p class="kicker">WHAT YOU CAN DO</p>
+            <h2 id="features-heading">書く・並べる・動かす。<br>ひとつの画面で。</h2>
+          </div>
+
+          <article class="feature">
+            <div class="feature-text">
+              <span class="feature-no">01</span>
+              <h3>Quarto を、さわって組み立てる。</h3>
+              <p>原稿は Quarto 形式（<code>.qmd</code>）のまま、ブロックとして画面に並びます。横並びや囲み、ブロック同士の間隔はスライド上で直接つかんで調整でき、記法を覚えなくても思いどおりのレイアウトにできます。</p>
+              <ul class="feature-list">
+                <li>ブロックをドラッグで移動・横に並べる</li>
+                <li>余白や大きさは端のつまみで調整</li>
+                <li>Quarto 本体のインストールは不要</li>
+              </ul>
+            </div>
+            <button class="shot crop" type="button" style="--x:10;--y:120;--cw:1410;--ch:620" data-zoom="assets/screenshots/editor.webp" data-caption="左は原稿のブロック表示、右はそのページのスライド。どちらからでも編集できます。" aria-label="原稿ブロックとスライドの画面を拡大">
+              <img src="assets/screenshots/editor.webp" width="1800" height="1050" alt="原稿のブロック表示と、対応するスライドを並べた画面" loading="lazy">
+            </button>
+          </article>
+
+          <article class="feature">
+            <div class="feature-text">
+              <span class="feature-no">02</span>
+              <h3><code>@</code> と書けば、引用が付く。</h3>
+              <p>文献は BibTeX でまとめておき、本文に <code>@kool2019</code> のように書くだけ。そのスライドの下に出典が入り、最後の参考文献ページにも自動で追加されます。番号の振り直しも要りません。</p>
+              <div class="cite-demo" aria-hidden="true">
+                <div class="cite-row"><span class="cite-label">原稿</span><span>…代表的なモデル <span class="cite-chip">@kool2019</span> を説明する。</span></div>
+                <div class="cite-row"><span class="cite-label">スライド</span><span>…代表的なモデル <span class="cite-ref">[5]</span> を説明する。</span></div>
+                <div class="cite-row cite-foot"><span class="cite-label">下部</span><span>[5] W. Kool, H. van Hoof, M. Welling. Attention, Learn to Solve Routing Problems! ICLR 2019.</span></div>
+              </div>
+            </div>
+            <button class="shot crop" type="button" style="--x:470;--y:520;--cw:930;--ch:200" data-zoom="assets/screenshots/editor.webp" data-caption="本文の @kool2019 が [5] になり、スライドの下に出典が入っています。" aria-label="引用が入ったスライドの画面を拡大">
+              <img src="assets/screenshots/editor.webp" width="1800" height="1050" alt="スライド下部に自動で入った出典" loading="lazy">
+            </button>
+          </article>
+
+          <article class="feature">
+            <div class="feature-text">
+              <span class="feature-no">03</span>
+              <h3>動く図を、型から作る。</h3>
+              <p>段階的に動く図のための JavaScript の部品を同梱しています。AI に図を頼むと、この部品をコピーして組み立てるので、一から書かせるより崩れにくく、動きもそろいます。図は発表中にクリックで一段ずつ進み、書き出した HTML でもそのまま動きます。</p>
+              <ul class="feature-list">
+                <li>図はトピックごとにまとまり、ほかの発表でも再利用できる</li>
+                <li>右上の <span class="step-badge">①–⑦</span> は段階の数</li>
+              </ul>
+            </div>
+            <button class="shot crop" type="button" style="--x:600;--y:350;--cw:740;--ch:270" data-zoom="assets/screenshots/editor.webp" data-caption="7 段階で動く HTML の図。上のスライドの 13 ページで実際に動かせます。" aria-label="段階的に動く図の画面を拡大">
+              <img src="assets/screenshots/editor.webp" width="1800" height="1050" alt="エンコーダーとデコーダーを経て選択確率を出す、段階的に動く図" loading="lazy">
+            </button>
+          </article>
+
+          <article class="feature">
+            <div class="feature-text">
+              <span class="feature-no">04</span>
+              <h3>実験結果を、フォルダごと渡す。</h3>
+              <p>ログや CSV が入った実験結果のフォルダを、そのまま参考資料に入れておくだけ。AI が中身を読みに行き、必要な数字を拾って表やグラフにします。どのファイルを開けばいいか、一つずつ説明する必要はありません。</p>
+            </div>
+            <div class="data-visual" role="img" aria-label="results フォルダの CSV やログから、表と棒グラフのスライドができる様子">
+              <svg viewBox="0 0 560 300" aria-hidden="true">
+                <rect x="16" y="40" width="190" height="220" rx="10" class="dv-card"/>
+                <path d="M34 66h22l7 7h44" class="dv-folder"/>
+                <text x="34" y="98" class="dv-title">results/</text>
+                <g class="dv-file"><rect x="34" y="114" width="154" height="26" rx="5"/><text x="46" y="132">run_01.csv</text></g>
+                <g class="dv-file"><rect x="34" y="146" width="154" height="26" rx="5"/><text x="46" y="164">run_02.csv</text></g>
+                <g class="dv-file"><rect x="34" y="178" width="154" height="26" rx="5"/><text x="46" y="196">config.yaml</text></g>
+                <g class="dv-file"><rect x="34" y="210" width="154" height="26" rx="5"/><text x="46" y="228">train.log</text></g>
+                <path d="M222 150h50m-12-12 12 12-12 12" class="dv-arrow"/>
+                <rect x="288" y="24" width="256" height="252" rx="10" class="dv-slide"/>
+                <rect x="306" y="44" width="120" height="8" rx="4" class="dv-head"/>
+                <g class="dv-table">
+                  <rect x="306" y="68" width="220" height="22" class="dv-th"/>
+                  <path d="M306 112h220M306 134h220M380 68v88M452 68v88"/>
+                  <rect x="306" y="68" width="220" height="88" class="dv-outline"/>
+                </g>
+                <g class="dv-bars">
+                  <path d="M306 256h220" class="dv-axis"/>
+                  <rect x="320" y="214" width="26" height="42"/>
+                  <rect x="362" y="196" width="26" height="60"/>
+                  <rect x="404" y="226" width="26" height="30"/>
+                  <rect x="446" y="176" width="26" height="80" class="dv-bar-accent"/>
+                  <rect x="488" y="206" width="26" height="50"/>
+                </g>
+              </svg>
+            </div>
+          </article>
+
+          <article class="feature">
+            <div class="feature-text">
+              <span class="feature-no">05</span>
+              <h3>「このページを」と言わなくていい。</h3>
+              <p>チャットの宛先は、いま開いているページ（選んでいる図）に自動で決まります。ほかのページを見ながら同じ所を直してほしいときは［固定］、発表全体なら［全体］に切り替えるだけ。</p>
+              <p>直したあとはアプリが検査し、別の AI が見た目と文章を確認します。気に入らなければ、送信ごとに元へ戻せます。</p>
+            </div>
+            <button class="shot crop crop-tall" type="button" style="--x:1430;--y:840;--cw:360;--ch:210" data-zoom="assets/screenshots/editor.webp" data-caption="入力欄の上に「対象 p13 Attention Model：概要」と、いま開いているページが自動で入っています。" aria-label="チャットの対象表示の画面を拡大">
+              <img src="assets/screenshots/editor.webp" width="1800" height="1050" alt="チャット入力欄の上に表示された、対象ページ p13 と［全体］ボタン" loading="lazy">
+            </button>
+          </article>
+
+          <article class="feature">
+            <div class="feature-text">
+              <span class="feature-no">06</span>
+              <h3>テーマで、全ページがそろう。</h3>
+              <p>色・フォント・見出しの形はテーマにまとまっていて、切り替えると全ページが一度に変わります。本文の色、強調色、表の見出しなど、役割ごとに色を決めるので、ページによって配色がばらつきません。テーマの調整もチャットで頼めます。</p>
+            </div>
+            <button class="shot crop" type="button" style="--x:10;--y:75;--cw:1780;--ch:740" data-zoom="assets/screenshots/theme.webp" data-caption="テーマのタブ。色を役割ごとに決め、見出しと本文のフォントも選べます。" aria-label="テーマ編集の画面を拡大">
+              <img src="assets/screenshots/theme.webp" width="1800" height="1050" alt="テーマの一覧と、本文・強調色・表などの色を役割ごとに設定する画面" loading="lazy">
+            </button>
+          </article>
+        </div>
+      </section>
+
+      <!-- BASICS -->
+      <section class="basics section" aria-labelledby="basics-heading">
+        <div class="container">
+          <div class="section-head">
+            <p class="kicker">ON YOUR MACHINE</p>
+            <h2 id="basics-heading">手元で動いて、<br>手持ちの契約で使える。</h2>
+          </div>
+          <div class="basics-grid">
+            <article class="basic-card">
+              <svg class="icon basic-icon"><use href="#i-offline"/></svg>
+              <h3>ネットがなくても編集できる</h3>
+              <p>チャット以外はすべて自分の PC の中で動きます。移動中や学会の会場でも、編集・書き出しが止まりません。</p>
+            </article>
+            <article class="basic-card">
+              <svg class="icon basic-icon"><use href="#i-key"/></svg>
+              <h3>いつものサブスクで AI を使う</h3>
+              <p>ChatGPT・Claude・Gemini の契約にログインして、その利用枠で動きます。API キーや追加の料金は要りません。</p>
+            </article>
+            <article class="basic-card">
+              <svg class="icon basic-icon"><use href="#i-folder"/></svg>
+              <h3>ファイルは、ふつうのファイル</h3>
+              <p>原稿は <code>.qmd</code>、文献は <code>.bib</code>、図は HTML。選んだフォルダにそのまま保存され、ほかのエディタでも開けます。</p>
+            </article>
+            <article class="basic-card">
+              <svg class="icon basic-icon"><use href="#i-share"/></svg>
+              <h3>HTML と PDF で届ける</h3>
+              <p>動きごと単一の HTML に。受け取る人はブラウザで開くだけです。配布用の PDF には、途中の段階も選んで残せます。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMPARE -->
+      <section class="compare section" id="compare" aria-labelledby="compare-heading">
+        <div class="container">
+          <div class="section-head">
+            <p class="kicker">HOW IT'S DIFFERENT</p>
+            <h2 id="compare-heading">ほかのやり方と、何が違う？</h2>
+            <p class="section-lead">スライドソフトの手軽さと、Quarto や LaTeX の書きやすさ。その間をねらっています。</p>
+          </div>
+          <div class="table-scroll" tabindex="0" role="region" aria-labelledby="compare-heading">
+            <table class="compare-table">
+              <thead>
+                <tr><th scope="col"><span class="sr-only">項目</span></th><th scope="col" class="is-us">Slide Studio</th><th scope="col">一般的なスライドソフト</th><th scope="col">Quarto・Beamer を直接書く</th><th scope="col">AI のスライド生成サービス</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">レイアウトの調整</th><td class="is-us"><b>画面で直接</b>つかんで調整</td><td>画面で直接</td><td>コードを書いて、ビルドして確認</td><td>作り直しを頼む</td></tr>
+                <tr><th scope="row">数式・文献の引用</th><td class="is-us"><b><code>@key</code> で自動</b>。参考文献ページも自動</td><td>手で書いて、番号も手で管理</td><td>自動</td><td>サービスによる</td></tr>
+                <tr><th scope="row">動く図</th><td class="is-us"><b>HTML の図</b>を段階的に</td><td>標準のアニメーション</td><td>自分で書く</td><td>多くは静止画</td></tr>
+                <tr><th scope="row">AI への頼み方</th><td class="is-us"><b>開いているページ</b>に直接。直した後は検査と確認</td><td>製品による</td><td>別のツールで</td><td>まとめて生成が中心</td></tr>
+                <tr><th scope="row">AI の料金</th><td class="is-us"><b>手持ちの契約</b>（ChatGPT・Claude・Gemini）</td><td>製品による</td><td>—</td><td>そのサービスの料金</td></tr>
+                <tr><th scope="row">オフライン編集</th><td class="is-us"><b>できる</b></td><td>製品による</td><td>できる</td><td>できない</td></tr>
+                <tr><th scope="row">データの置き場所</th><td class="is-us"><b>自分の PC</b></td><td>製品による</td><td>自分の PC</td><td>クラウド</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- START -->
+      <section class="start section" id="start" aria-labelledby="start-heading"><div class="container start-layout">
+        <div class="start-intro">
+          <p class="kicker">GET STARTED</p>
+          <h2 id="start-heading">コマンドひとつで、<br>起動する。</h2>
+          <p>自分の PC で動くアプリです。リポジトリを取得したら、あとは <code>uv run</code> だけ。</p>
+          <div class="requirements"><span>Python 3.13+</span><span>uv</span></div>
+          <a class="inline-link" href="https://docs.astral.sh/uv/getting-started/installation/" target="_blank" rel="noopener noreferrer">uv のインストール方法 <svg class="icon"><use href="#i-external"/></svg></a>
+        </div>
+        <div class="start-instructions">
+          <div class="terminal"><div class="terminal-header"><span>TERMINAL</span><button id="copy-command" class="copy-button" type="button" aria-label="導入コマンドをコピー"><svg class="icon"><use href="#i-copy"/></svg><span>コピー</span></button></div><pre><code><span class="code-comment"># リポジトリを取得して、起動</span>
+<span class="code-prompt">$</span> git clone https://github.com/edoaki/slide-studio.git
+<span class="code-prompt">$</span> cd slide-studio
+<span class="code-prompt">$</span> <span class="code-highlight">uv run slide-studio</span></code></pre></div>
+          <p id="copy-status" class="sr-only" role="status" aria-live="polite"></p>
+          <ol class="first-steps">
+            <li><span>1</span><div><strong>保管フォルダを選ぶ</strong><p>原稿や図を保存する場所を選びます。</p></div></li>
+            <li><span>2</span><div><strong>書き出し用ブラウザを準備</strong><p>［動作環境］から Chromium を準備します。</p></div></li>
+            <li><span>3</span><div><strong>［新しい発表］から作りはじめる</strong><p>AI を使うときは、チャットからログインします。</p></div></li>
+          </ol>
+          <p class="setup-note">初回のパッケージ取得と Chromium の準備にはネットワーク接続が必要です。開発中のアプリのため、最新の使い方は <a href="https://github.com/edoaki/slide-studio#readme" target="_blank" rel="noopener noreferrer">README</a> を確認してください。</p>
+        </div>
+      </div></section>
+
+      <section class="closing container"><div><p class="kicker">MAKE YOUR NEXT TALK.</p><h2>次の発表を、ここから。</h2></div><a class="button button-primary" href="https://github.com/edoaki/slide-studio" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-github"/></svg> GitHub で見る</a></section>
+    </main>
+
+    <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="#"><span class="brand-mark" aria-hidden="true"><span></span><span></span></span>Slide Studio</a><p>画面写真と埋め込みスライドには、発表 nco-intro を使用しています。</p><a href="https://github.com/edoaki/slide-studio" target="_blank" rel="noopener noreferrer">GitHub <svg class="icon"><use href="#i-external"/></svg></a></div></footer>
+
+    <dialog id="image-dialog" class="image-dialog" aria-label="画面写真の拡大表示"><div class="dialog-toolbar"><span>SLIDE STUDIO / SCREENSHOT</span><button id="close-dialog" type="button" aria-label="拡大表示を閉じる">閉じる <span aria-hidden="true">×</span></button></div><img id="dialog-image" alt="拡大した Slide Studio の画面"><p id="dialog-caption"></p></dialog>
+  </body>
+</html>
