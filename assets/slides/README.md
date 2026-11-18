@@ -8,8 +8,10 @@ replacing them with screenshots or a recreated slide deck.
 After refreshing the export, run `python3 scripts/tune-embedded-slides.py`.
 This reapplies the website playback settings: the solver pauses at its five
 explanation/result states, automatically traversing the intervening tree and
-edge states. Each transition on the three solving-method slides has a 900 ms
-animation budget. Reverse navigation and direct jumps show the destination
+edge states. Solver transitions use 50% of the original duration per operation;
+nearest-neighbor transitions use 80%. Longer sequences retain time for each
+branch or decision instead of sharing a fixed total budget. The 2-opt figure
+keeps its 900 ms transition budget. Reverse navigation and direct jumps show the destination
 state immediately. Slide text and images cannot be selected/dragged by repeated
 navigation clicks; links and player controls remain usable.
 

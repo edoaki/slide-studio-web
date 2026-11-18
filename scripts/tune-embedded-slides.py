@@ -16,10 +16,14 @@ const playback = {
     const frames = [];
     for (let i = stops[from]; i < stops[to]; i++) {
       const sequence = figure.transition?.(i, i + 1);
-      frames.push(...(sequence?.length ? sequence : [{markup: figure.renderStep(i + 1), duration: 220}]));
+      frames.push(...(sequence?.length ? sequence : [{markup: figure.renderStep(i + 1), duration: 650}]));
     }
     const total = frames.reduce((sum, f) => sum + (f.duration ?? 220) + (f.hold ?? 0), 0);
-    const scale = Math.min(1, 900 / Math.max(1, total));
+    // Keep time per operation: longer searches must not squeeze every branch
+    // or nearest-neighbor decision into the same sub-second transition.
+    const scale = figure.id === 'F21' ? 0.5
+      : figure.id === 'F22' ? 0.8
+      : Math.min(1, 900 / Math.max(1, total));
     return frames.map(f => ({...f, duration: (f.duration ?? 220) * scale, hold: (f.hold ?? 0) * scale}));
   }
 };
