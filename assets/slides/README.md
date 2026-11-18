@@ -8,12 +8,17 @@ replacing them with screenshots or a recreated slide deck.
 After refreshing the export, run `python3 scripts/tune-embedded-slides.py`.
 This reapplies the website playback settings: the solver pauses at its five
 explanation/result states, automatically traversing the intervening tree and
-edge states. Solver transitions use 50% of the original duration per operation;
-nearest-neighbor transitions use 80%. Longer sequences retain time for each
-branch or decision instead of sharing a fixed total budget. The 2-opt figure
-keeps its 900 ms transition budget. Reverse navigation and direct jumps show the destination
+edge states. Each operation animates for 650 ms, followed by a 750 ms readable
+pause before the next operation (the runtime's `hold` runs before a frame).
+The last state remains until user input. Solver leaf states that would briefly
+say "unresolved" before becoming numeric are omitted; completed leaves appear
+directly. Nearest-neighbor comparisons and selections use the same timing for
+every city, without brief candidate-fade states. Reverse navigation and direct jumps show the destination
 state immediately. Slide text and images cannot be selected/dragged by repeated
 navigation clicks; links and player controls remain usable.
+
+Run `python3 scripts/check-embedded-playback.py` (requires Node.js) to verify
+per-operation timing, readable pauses, omitted transient labels, and final states.
 
 The source is the user's `Slides/decks/nco-intro/slides.qmd`, its presentation
 CSS, `Slides/themes/mist.css`, and `Slides/topics/nco/`. Preserve the latest source

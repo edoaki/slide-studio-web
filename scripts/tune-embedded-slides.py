@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Reapply website playback settings after replacing the Slide Studio export."""
 import html
+import base64
 import re
 from pathlib import Path
 
@@ -18,13 +19,10 @@ const playback = {
       const sequence = figure.transition?.(i, i + 1);
       frames.push(...(sequence?.length ? sequence : [{markup: figure.renderStep(i + 1), duration: 650}]));
     }
-    const total = frames.reduce((sum, f) => sum + (f.duration ?? 220) + (f.hold ?? 0), 0);
-    // Keep time per operation: longer searches must not squeeze every branch
-    // or nearest-neighbor decision into the same sub-second transition.
-    const scale = figure.id === 'F21' ? 0.5
-      : figure.id === 'F22' ? 0.8
-      : Math.min(1, 900 / Math.max(1, total));
-    return frames.map(f => ({...f, duration: (f.duration ?? 220) * scale, hold: (f.hold ?? 0) * scale}));
+    // Runtime holds BEFORE the next frame: let each completed state remain
+    // readable for 750 ms, then give the next operation 650 ms to move.
+    // The last state remains visible until the next user input.
+    return frames.map((f, i) => ({...f, duration: 650, hold: i === 0 ? 0 : 750}));
   }
 };
 mount(playback);"""
@@ -33,11 +31,53 @@ STYLE = """<style id="website-playback-selection">
 #stage img { -webkit-user-drag: none; }
 </style>"""
 
+SOLVER_TRANSITION = """
+ transition(from,to){
+  if(to!==from+1)return null;
+  const frames=[];
+  for(let t=states[from]+1;t<=states[to];t++){
+   // These partial leaf states become numeric results immediately afterward.
+   // Reveal the completed leaf directly, without flashing an unresolved label.
+   if([5,8,12,13].includes(t))continue;
+   frames.push({markup:scene(t),duration:650});
+  }
+  return frames;
+ }};
+"""
+NEAREST_TRANSITION = """
+ transition(from,to){
+  if(to!==from+1)return null;
+  if(to===1)return decide(0);
+  if(to===2){
+   const frames=[];
+   // Every remaining city gets the same comparison and selection phases.
+   // Do not insert brief candidate-fade states between decisions.
+   for(let i=1;i<n-1;i++)frames.push(...decide(i));
+   return [...frames,{markup:scene(state(2)),duration:650}];
+  }
+  return null;
+ }};
+"""
+
+
+def tune_figure(match):
+    module = base64.b64decode(match[1]).decode()
+    transition = (SOLVER_TRANSITION if "id:'F21'" in module else
+                  NEAREST_TRANSITION if "id:'F22'" in module else None)
+    if transition:
+        module, count = re.subn(r'\n transition\(from,to\).*\Z',
+                                lambda _: transition, module, flags=re.S)
+        if count != 1:
+            raise ValueError('Expected one figure transition implementation')
+    return match[0].replace(match[1], base64.b64encode(module.encode()).decode())
+
 
 def main():
     source = DECK.read_text()
     def tune(match):
         frame = html.unescape(match[1])
+        frame = re.sub(r"import figure from 'data:text/javascript;base64,([A-Za-z0-9+/=]+)'",
+                       tune_figure, frame)
         if 'mount(playback);' in frame:
             frame = re.sub(r'// Website playback:.*?mount\(playback\);', lambda _: POLICY, frame, flags=re.S)
         else:
