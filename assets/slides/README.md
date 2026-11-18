@@ -2,8 +2,16 @@
 
 `nco-intro.html` is the actual self-contained Slide Studio export of the latest
 `nco-intro` presentation. It uses the edited `mist` theme from `multi-sampling`
-and the current shared `nco` figures. All 20 pages and all animation steps are
-included, without replacing them with screenshots or a recreated slide deck.
+and the current shared `nco` figures. All 20 pages are included, without
+replacing them with screenshots or a recreated slide deck.
+
+After refreshing the export, run `python3 scripts/tune-embedded-slides.py`.
+This reapplies the website playback settings: the solver pauses at its five
+explanation/result states, automatically traversing the intervening tree and
+edge states. Each transition on the three solving-method slides has a 900 ms
+animation budget. Reverse navigation and direct jumps show the destination
+state immediately. Slide text and images cannot be selected/dragged by repeated
+navigation clicks; links and player controls remain usable.
 
 The source is the user's `Slides/decks/nco-intro/slides.qmd`, its presentation
 CSS, `Slides/themes/mist.css`, and `Slides/topics/nco/`. Preserve the latest source
