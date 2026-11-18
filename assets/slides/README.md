@@ -17,6 +17,11 @@ every city, without brief candidate-fade states. Reverse navigation and direct j
 state immediately. Slide text and images cannot be selected/dragged by repeated
 navigation clicks; links and player controls remain usable.
 
+`scripts/nearest-neighbor-scene.mjs` supplies the nearest-neighbor scene:
+the current city is labeled, bars explicitly compare distances to unvisited
+cities, and each comparison/selection has a written explanation. The map and
+explanations occupy separate areas.
+
 Run `python3 scripts/check-embedded-playback.py` (requires Node.js) to verify
 per-operation timing, readable pauses, omitted transient labels, and final states.
 

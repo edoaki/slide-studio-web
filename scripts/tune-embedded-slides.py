@@ -62,6 +62,14 @@ NEAREST_TRANSITION = """
 
 def tune_figure(match):
     module = base64.b64decode(match[1]).decode()
+    if "id:'F22'" in module:
+        scene = Path(__file__).with_name('nearest-neighbor-scene.mjs').read_text()
+        module, count = re.subn(r'function scene\(.*?(?=\nconst state=)',
+                                lambda _: scene[scene.index('function scene('):], module, flags=re.S)
+        if count != 1:
+            raise ValueError('Expected one nearest-neighbor scene')
+        module = module.replace('const state=k=>[{},',
+                                'const state=k=>[{moves:0,decision:0,picked:false},')
     transition = (SOLVER_TRANSITION if "id:'F21'" in module else
                   NEAREST_TRANSITION if "id:'F22'" in module else None)
     if transition:

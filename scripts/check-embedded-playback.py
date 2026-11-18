@@ -36,6 +36,14 @@ for (const path of process.argv.slice(2)) {
         assert.ok(!/tree-value-(?:aab|aba|ba)-未確定/.test(f.markup),
           'Do not flash unresolved labels on leaves before their numeric result');
       }
+      if (p.id === 'F22') {
+        assert.ok(f.markup.includes('decision-message'));
+        if (f.markup.includes('dist-head-')) {
+          assert.ok(f.markup.includes('棒が短いほど近い'));
+          assert.ok(f.markup.includes('未訪問のみ'));
+          assert.ok(/距離を比べる|最も近い都市/.test(f.markup));
+        }
+      }
     });
     assert.equal(frames.at(-1).markup, p.renderStep(k));
     assert.equal(p.transition(k, k - 1)[0].markup, p.renderStep(k - 1));
