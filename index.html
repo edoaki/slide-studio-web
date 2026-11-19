@@ -33,7 +33,7 @@
       <div class="container header-inner">
         <a class="brand" href="#" aria-label="Slide Studio トップへ"><span class="brand-mark" aria-hidden="true"><span></span><span></span></span>Slide Studio</a>
         <nav class="desktop-nav" aria-label="メインナビゲーション">
-          <a href="#slides">実例</a><a href="#features">できること</a><a href="#compare">ほかとの違い</a><a href="#start">はじめる</a>
+          <a href="#slides">実例</a><a href="#features">できること</a><a href="#compare">ほかとの違い</a><a href="#start">使い方を選ぶ</a>
         </nav>
         <a class="header-start" href="https://github.com/edoaki/slide-studio" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-github"/></svg><span>GitHub</span></a>
       </div>
@@ -54,7 +54,7 @@
               <li>ChatGPT・Claude・Gemini の契約で使える</li>
             </ul>
             <div class="hero-actions">
-              <a class="button button-primary" href="#start">はじめる <svg class="icon"><use href="#i-arrow"/></svg></a>
+              <a class="button button-primary" href="#start">アプリ版・GitHub版を選ぶ <svg class="icon"><use href="#i-arrow"/></svg></a>
               <a class="button button-ghost" href="#slides">作例を見る</a>
             </div>
           </div>
@@ -293,30 +293,72 @@
       </section>
 
       <!-- START -->
-      <section class="start section" id="start" aria-labelledby="start-heading"><div class="container start-layout">
+      <section class="start section" id="start" aria-labelledby="start-heading"><div class="container">
+        <div class="section-head">
+          <p class="kicker">CHOOSE YOUR VERSION</p>
+          <h2 id="start-heading">そのまま使う。<br>自分に合わせて作り変える。</h2>
+          <p class="section-lead">Slide Studio には、インストールして使うアプリ版と、ソースコードから動かす GitHub版があります。どちらも自分の PC で使えます。</p>
+        </div>
+        <div class="version-options">
+          <article class="version-card" aria-labelledby="app-version-heading">
+            <p class="kicker">APP</p>
+            <h3 id="app-version-heading">アプリ版</h3>
+            <p class="version-audience">開発環境の準備を省いて、<br>発表作りに集中したい人へ。</p>
+            <p>Mac・Windows 用のインストーラーで導入できます。ソースコードを扱わず、用意された機能でスライドを作成・編集したい人に向いています。</p>
+            <p class="version-status">インストーラーは正式配布の準備中です。</p>
+            <a class="inline-link" href="#app-start">アプリ版の導入方法を見る</a>
+          </article>
+          <article class="version-card" aria-labelledby="github-version-heading">
+            <p class="kicker">SOURCE CODE</p>
+            <h3 id="github-version-heading">GitHub版<span>（ソース公開）</span></h3>
+            <p class="version-audience">欲しい機能を追加して、<br>アプリ自体をカスタマイズしたい人へ。</p>
+            <p>公開されたソースコードを変更し、ライセンスの範囲内で、手元のアプリに欲しい機能を追加したり、操作や画面を変えたりできます。開発環境を用意し、自分で動作を確認しながら使いたい人に向いています。</p>
+            <p class="version-status">Git・Node.js の準備が必要です。</p>
+            <a class="inline-link" href="#github-start">GitHub版の導入方法を見る</a>
+          </article>
+        </div>
+        <div class="start-layout" id="app-start">
         <div class="start-intro">
-          <p class="kicker">GET STARTED</p>
-          <h2 id="start-heading">コマンドひとつで、<br>起動する。</h2>
-          <p>自分の PC で動くアプリです。リポジトリを取得したら、あとは <code>uv run</code> だけ。</p>
-          <div class="requirements"><span>Python 3.13+</span><span>uv</span></div>
-          <a class="inline-link" href="https://docs.astral.sh/uv/getting-started/installation/" target="_blank" rel="noopener noreferrer">uv のインストール方法 <svg class="icon"><use href="#i-external"/></svg></a>
+          <p class="kicker">APP SETUP</p>
+          <h3>アプリ版をインストールする</h3>
+          <p>自分の PC で動くアプリです。Mac は DMG、Windows は EXE からインストールします。Python・uv・Git の準備は不要です。</p>
+          <div class="requirements"><span>Mac Apple Silicon</span><span>Mac Intel</span><span>Windows x64</span></div>
+          <p class="setup-note" id="download-status">インストーラーは正式配布の準備中です。</p>
+          <div class="download-options" aria-label="アプリのダウンロード">
+            <button class="button button-ghost" data-download="mac-arm64" disabled>Mac Apple Silicon · 準備中</button>
+            <button class="button button-ghost" data-download="mac-x64" disabled>Mac Intel · 準備中</button>
+            <button class="button button-ghost" data-download="win-x64" disabled>Windows x64 · 準備中</button>
+          </div>
         </div>
         <div class="start-instructions">
-          <div class="terminal"><div class="terminal-header"><span>TERMINAL</span><button id="copy-command" class="copy-button" type="button" aria-label="導入コマンドをコピー"><svg class="icon"><use href="#i-copy"/></svg><span>コピー</span></button></div><pre><code><span class="code-comment"># リポジトリを取得して、起動</span>
-<span class="code-prompt">$</span> git clone https://github.com/edoaki/slide-studio.git
-<span class="code-prompt">$</span> cd slide-studio
-<span class="code-prompt">$</span> <span class="code-highlight">uv run slide-studio</span></code></pre></div>
-          <p id="copy-status" class="sr-only" role="status" aria-live="polite"></p>
           <ol class="first-steps">
-            <li><span>1</span><div><strong>保管フォルダを選ぶ</strong><p>原稿や図を保存する場所を選びます。</p></div></li>
-            <li><span>2</span><div><strong>書き出し用ブラウザを準備</strong><p>［動作環境］から Chromium を準備します。</p></div></li>
-            <li><span>3</span><div><strong>［新しい発表］から作りはじめる</strong><p>AI を使うときは、チャットからログインします。</p></div></li>
+            <li><span>1</span><div><strong>インストールして開く</strong><p>Mac はアプリを Applications にコピーし、Windows はインストーラーに従います。</p></div></li>
+            <li><span>2</span><div><strong>保管フォルダを選ぶ</strong><p>原稿や図を保存する場所を選び、［新しい発表］から作りはじめます。</p></div></li>
+            <li><span>3</span><div><strong>必要なら AI を準備する</strong><p>ホームの AI 準備から、使う AI を取得して本人のアカウントでログインします。</p></div></li>
           </ol>
-          <p class="setup-note">初回のパッケージ取得と Chromium の準備にはネットワーク接続が必要です。開発中のアプリのため、最新の使い方は <a href="https://github.com/edoaki/slide-studio#readme" target="_blank" rel="noopener noreferrer">README</a> を確認してください。</p>
+          <p class="setup-note">描画エンジンと Pandoc はアプリに同梱されています。編集・プレビュー・HTML/PDF 書き出しはオフラインで使えます。AI の取得・ログイン・利用にはネットワーク接続が必要です。</p>
+        </div>
+        </div>
+        <div class="github-start" id="github-start" aria-labelledby="github-start-heading">
+          <p class="kicker">GITHUB SETUP</p>
+          <h3 id="github-start-heading">GitHub版をソースから動かす</h3>
+          <p>アプリ自体の機能や画面を変えたい場合は、GitHub からソースコードを取得して開発環境を用意します。変更したコードの動作確認や、更新の取り込みも自分で行います。</p>
+          <a class="inline-link" href="https://github.com/edoaki/slide-studio/tree/migration/electron" target="_blank" rel="noopener noreferrer">GitHub でソースを見る</a>
+          <p>Node.js 24.18 以降の 24 系と Git を用意してください。Electron 版は <code>migration/electron</code> ブランチです。</p>
+          <details class="source-start"><summary>起動コマンドを表示</summary>
+            <div class="terminal"><div class="terminal-header"><span>TERMINAL</span><button id="copy-command" class="copy-button" type="button" aria-label="導入コマンドをコピー"><svg class="icon"><use href="#i-copy"/></svg><span>コピー</span></button></div><pre><code><span class="code-comment"># Electron 版を取得して、起動</span>
+<span class="code-prompt">$</span> git clone --branch migration/electron https://github.com/edoaki/slide-studio.git
+<span class="code-prompt">$</span> cd slide-studio
+<span class="code-prompt">$</span> npm install
+<span class="code-prompt">$</span> <span class="code-highlight">npm start</span></code></pre></div>
+            <p id="copy-status" class="sr-only" role="status" aria-live="polite"></p>
+            <p><code>npm run browser</code> では、同じローカルアプリの編集画面をブラウザーで開けます。このサイト上で動くクラウドサービスではありません。</p>
+          </details>
+          <p class="setup-note">ソースは PolyForm Noncommercial ライセンスで公開しています。商用利用を制限するため、OSI 定義の OSS ではありません。詳しくは <a href="https://github.com/edoaki/slide-studio/blob/migration/electron/LICENSE">ライセンス</a>と<a href="https://github.com/edoaki/slide-studio/blob/migration/electron/CONTRIBUTING.md">開発ガイド</a>を確認してください。</p>
         </div>
       </div></section>
 
-      <section class="closing container"><div><p class="kicker">MAKE YOUR NEXT TALK.</p><h2>次の発表を、ここから。</h2></div><a class="button button-primary" href="https://github.com/edoaki/slide-studio" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-github"/></svg> GitHub で見る</a></section>
+      <section class="closing container"><div><p class="kicker">MAKE YOUR NEXT TALK.</p><h2>次の発表を、ここから。</h2></div><a class="button button-primary" href="#start">アプリ版・GitHub版を選ぶ</a></section>
     </main>
 
     <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="#"><span class="brand-mark" aria-hidden="true"><span></span><span></span></span>Slide Studio</a><p>画面写真と埋め込みスライドには、発表 nco-intro を使用しています。</p><a href="https://github.com/edoaki/slide-studio" target="_blank" rel="noopener noreferrer">GitHub <svg class="icon"><use href="#i-external"/></svg></a></div></footer>
