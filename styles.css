@@ -211,8 +211,7 @@ h3 code { font-size:.85em; }
 .site-footer { border-top:1px solid var(--line); padding-block:28px; font-size:14px; color:var(--muted); }
 .footer-inner { display:flex; align-items:center; gap:24px; }
 .footer-inner .brand { font-size:16px; color:var(--ink); }
-.footer-inner p { flex:1; }
-.footer-inner > a:last-child { display:inline-flex; align-items:center; gap:6px; min-height:44px; }
+.footer-inner > a:last-child { display:inline-flex; align-items:center; gap:6px; min-height:44px; margin-left:auto; }
 .footer-inner .icon { width:15px; height:15px; }
 
 /* dialog */
@@ -248,7 +247,6 @@ h3 code { font-size:.85em; }
   .basic-card { padding:22px 20px; column-gap:16px; }
   .closing { flex-direction:column; align-items:flex-start; padding-block:68px; }
   .footer-inner { flex-wrap:wrap; gap:8px 20px; }
-  .footer-inner p { flex-basis:100%; order:3; }
   .cite-row { grid-template-columns:1fr; gap:2px; }
   .terminal pre { font-size:13px; padding:18px 16px; }
 }

@@ -60,7 +60,7 @@
           </div>
 
           <figure class="hero-figure">
-            <button class="shot" type="button" data-zoom="assets/screenshots/editor.webp" data-caption="左に原稿のブロック、中央にスライド、右にチャット。nco-intro を mist テーマで開いた実際の編集画面です。" aria-label="編集画面のスクリーンショットを拡大">
+            <button class="shot" type="button" data-zoom="assets/screenshots/editor.webp" data-caption="左に原稿のブロック、中央にスライド、右にチャット。実際の編集画面です。" aria-label="編集画面のスクリーンショットを拡大">
               <img src="assets/screenshots/editor.webp" width="1800" height="1050" alt="左に原稿のブロック、中央に図付きのスライド、右にチャットを並べた Slide Studio の編集画面" fetchpriority="high">
               <span class="zoom-hint"><svg class="icon"><use href="#i-plus"/></svg> 拡大</span>
             </button>
@@ -79,10 +79,10 @@
           <div class="section-head">
             <p class="kicker">MADE WITH SLIDE STUDIO</p>
             <h2 id="slides-heading">このスライドも、<br>Slide Studio で作りました。</h2>
-            <p class="section-lead">数式・文献・段階的に動く図を含む研究発表です。クリックや矢印キーで進められます。書き出した単一の HTML ファイルを、ここに埋め込んでいます。</p>
+            <p class="section-lead">数式・文献・段階的に動く図を含む研究発表です。クリックや矢印キーで進められます。</p>
           </div>
           <div class="demo-frame">
-            <iframe id="slide-frame" class="slide-frame" src="assets/slides/nco-intro.html" title="nco-intro：機械学習を使った組み合わせ最適化" loading="lazy" allow="fullscreen"></iframe>
+            <iframe id="slide-frame" class="slide-frame" src="assets/slides/nco-intro.html" title="研究発表の実例：機械学習を使った組み合わせ最適化" loading="lazy" allow="fullscreen"></iframe>
           </div>
         </div>
       </section>
@@ -336,7 +336,7 @@
             <li><span>2</span><div><strong>保管フォルダを選ぶ</strong><p>原稿や図を保存する場所を選び、［新しい発表］から作りはじめます。</p></div></li>
             <li><span>3</span><div><strong>必要なら AI を準備する</strong><p>ホームの AI 準備から、使う AI を取得して本人のアカウントでログインします。</p></div></li>
           </ol>
-          <p class="setup-note">描画エンジンと Pandoc はアプリに同梱されています。編集・プレビュー・HTML/PDF 書き出しはオフラインで使えます。AI の取得・ログイン・利用にはネットワーク接続が必要です。</p>
+          <p class="setup-note">編集・プレビュー・HTML/PDF 書き出しはオフラインで使えます。AI の取得・ログイン・利用にはネットワーク接続が必要です。</p>
         </div>
         </div>
         <div class="github-start" id="github-start" aria-labelledby="github-start-heading">
@@ -352,16 +352,15 @@
 <span class="code-prompt">$</span> npm install
 <span class="code-prompt">$</span> <span class="code-highlight">npm start</span></code></pre></div>
             <p id="copy-status" class="sr-only" role="status" aria-live="polite"></p>
-            <p><code>npm run browser</code> では、同じローカルアプリの編集画面をブラウザーで開けます。このサイト上で動くクラウドサービスではありません。</p>
+            <p><code>npm run browser</code> で、手元のアプリの編集画面をブラウザーで開けます。</p>
           </details>
-          <p class="setup-note">ソースは PolyForm Noncommercial ライセンスで公開しています。商用利用を制限するため、OSI 定義の OSS ではありません。詳しくは <a href="https://github.com/edoaki/slide-studio/blob/migration/electron/LICENSE">ライセンス</a>と<a href="https://github.com/edoaki/slide-studio/blob/migration/electron/CONTRIBUTING.md">開発ガイド</a>を確認してください。</p>
         </div>
       </div></section>
 
       <section class="closing container"><div><p class="kicker">MAKE YOUR NEXT TALK.</p><h2>次の発表を、ここから。</h2></div><a class="button button-primary" href="#start">アプリ版・GitHub版を選ぶ</a></section>
     </main>
 
-    <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="#"><span class="brand-mark" aria-hidden="true"><span></span><span></span></span>Slide Studio</a><p>画面写真と埋め込みスライドには、発表 nco-intro を使用しています。</p><a href="https://github.com/edoaki/slide-studio" target="_blank" rel="noopener noreferrer">GitHub <svg class="icon"><use href="#i-external"/></svg></a></div></footer>
+    <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="#"><span class="brand-mark" aria-hidden="true"><span></span><span></span></span>Slide Studio</a><a href="https://github.com/edoaki/slide-studio" target="_blank" rel="noopener noreferrer">GitHub <svg class="icon"><use href="#i-external"/></svg></a></div></footer>
 
     <dialog id="image-dialog" class="image-dialog" aria-label="画面写真の拡大表示"><div class="dialog-toolbar"><span>SLIDE STUDIO / SCREENSHOT</span><button id="close-dialog" type="button" aria-label="拡大表示を閉じる">閉じる <span aria-hidden="true">×</span></button></div><img id="dialog-image" alt="拡大した Slide Studio の画面"><p id="dialog-caption"></p></dialog>
   </body>
